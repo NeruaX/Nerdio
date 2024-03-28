@@ -19,7 +19,7 @@
     ##################### 
     Better logging  into nerdio output
     Detect net use needed or not before run to avoid unnecesary error output
-    Add logic for network share with ad account instead of azure files and storage key
+
 #>
 
 #Set base variables
@@ -37,11 +37,15 @@ if (-not($AzureFSLogixShareName)) {$AzureFSLogixShareName = $FSLogixShareName}
 if (-not($AzureFSLogixStorageAccount)) {$AzureFSLogixStorageAccount = $FSLogixStorageAccount}
 
 if ([string]::IsNullOrEmpty($AzureFSLogixStorageAccount)) {
-    Throw "Missing the FSLogix account name. Either provie account name paramater at runtime, or create FslStorageUser and FslStorageAccount secure variables in Nerdio Manager"
+    Throw "Missing the FSLogix account name. Either provie account name paramater at runtime, or create FslStorageAccount secure variable in Nerdio Manager"
 }
 if ([string]::IsNullOrEmpty($AzureFSLogixShareName)) {
-    Throw "Missing the FSLogix share name. Either provie share name paramater at runtime, or create FslStorageUser and FslShare secure variables in Nerdio Manager"
+    Throw "Missing the FSLogix share name. Either provie share name paramater at runtime, or create FslShareName secure variable in Nerdio Manager"
 }
+
+#Correct potential bad formatting. Capitalization matters...
+$AzureFSLogixShareName = $AzureFSLogixShareName.ToLower()
+$AzureFSLogixStorageAccount = $AzureFSLogixStorageAccount.ToLower()
 
 #Obtain storage account information
 $StorageAccount = Get-AzStorageAccount | Where-Object {$_.StorageAccountName -eq $AzureFSLogixStorageAccount}
