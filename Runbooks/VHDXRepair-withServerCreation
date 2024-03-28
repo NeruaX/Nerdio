@@ -46,7 +46,19 @@
     Mounts storage share
     Gets all vhdx's from share
     runs repair on all vhdx's that are not currently mounted
+    Removes new server
 
+    Variables can be defined from running the script or secure variables
+    FslShareName
+        Example: "fslogix"
+    FslStorageAccount
+        Exmpale: "stg2093g90sd"
+    FslTempVmVnet
+        Example: VNET_PROD_WEST3
+    FslTempVmSubnet
+        Example: SN_PROD_WEST3_Infr
+    FslTempVmResourceGroup
+        Example: PROD_WEST3
     #####################
     #       TODO        #
     ##################### 
