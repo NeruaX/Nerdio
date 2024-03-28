@@ -62,8 +62,8 @@
     #####################
     #       TODO        #
     ##################### 
-    Better logging into nerdio output
-    Add logic for network share with ad account instead of azure files and storage key
+    Better logging  into nerdio output
+
 #>
 
 $ErrorActionPreference = 'Stop'
@@ -106,10 +106,10 @@ if ([string]::IsNullOrEmpty($azureVnetSubnetName)) {
     Throw "Missing subnet name. Either provide the SubnetName parameter at runtime, or create the FslTempVmSubnet secure variable in Nerdio Settings."
 }
 if ([string]::IsNullOrEmpty($AzureFSLogixStorageAccount)) {
-    Throw "Missing the FSLogix account name. Either provie account name paramater at runtime, or create FslStorageUser and FslStorageAccount secure variables in Nerdio Manager"
+    Throw "Missing the FSLogix account name. Either provie account name paramater at runtime, or create FslStorageAccount secure variable in Nerdio Manager"
 }
 if ([string]::IsNullOrEmpty($AzureFSLogixShareName)) {
-    Throw "Missing the FSLogix share name. Either provie share name paramater at runtime, or create FslStorageUser and FslShare secure variables in Nerdio Manager"
+    Throw "Missing the FSLogix share name. Either provie share name paramater at runtime, or create FslShareName secure variable in Nerdio Manager"
 }
 
 #Correct potential bad formatting. Capitalization matters...
