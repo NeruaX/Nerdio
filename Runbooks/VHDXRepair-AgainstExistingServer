@@ -19,7 +19,7 @@
     ##################### 
     Better logging  into nerdio output
     Detect net use needed or not before run to avoid unnecesary error output
-
+    Add logic for network share with ad account instead of azure files and storage key
 #>
 
 #Set base variables
