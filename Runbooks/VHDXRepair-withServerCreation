@@ -62,8 +62,8 @@
     #####################
     #       TODO        #
     ##################### 
-    Better logging  into nerdio output
-
+    Better logging into nerdio output
+    Add logic for network share with ad account instead of azure files and storage key
 #>
 
 $ErrorActionPreference = 'Stop'
